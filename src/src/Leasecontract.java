@@ -2,8 +2,8 @@ import java.util.Date;
 
 public class Leasecontract {
     private String id;
-    private int vehicleId;
-    private int employeeId;
+    private Vehicle vehicle;
+    private Employee employee;
     private Date startDate;
     private Date endDate;
     private int duration;
@@ -16,20 +16,20 @@ public class Leasecontract {
         return id;
     }
 
-    public int getVehicleId() {
-        return vehicleId;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void setVehicleId(int vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public Date getStartDate() {
