@@ -1,12 +1,20 @@
 import java.util.Date;
 
 public class Leasecontract {
-
+    private String id;
     private int vehicleId;
     private int employeeId;
     private Date startDate;
     private Date endDate;
     private int duration;
+
+    public Leasecontract() {
+        this.id = UUID.randomUUID().toString();
+    }
+
+    public String getId() {
+        return id;
+    }
 
     public int getVehicleId() {
         return vehicleId;

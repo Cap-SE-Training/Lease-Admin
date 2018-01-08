@@ -1,19 +1,14 @@
 public class Vehicle {
-
+    private String id;
     private String license;
     private int mileage;
-    private int id
 
     public Vehicle(){
-
+        this.id = UUID.randomUUID().toString();
     }
 
-    public int getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getLicense() {
