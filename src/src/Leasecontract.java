@@ -1,27 +1,39 @@
 import java.util.Date;
 
 public class Leasecontract {
-
-    private int vehicleId;
-    private int employeeId;
+    private int id;
+    private Vehicle vehicle;
+    private Employer employer;
     private Date startDate;
     private Date endDate;
-    private int duration;
+    private int duration; // in minutes
 
-    public int getVehicleId() {
-        return vehicleId;
+    public int getId() {
+        return this.id;
     }
 
-    public void setVehicleId(int vehicleId) {
-        this.vehicleId = vehicleId;
+    public int getVehicle(Vehicle vehicle) {
+        return this.vehicle;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public Employer getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
     }
 
     public Date getStartDate() {
