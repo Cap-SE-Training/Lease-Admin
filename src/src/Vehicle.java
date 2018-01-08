@@ -1,7 +1,6 @@
 public class Vehicle {
 
     private String license;
-    private int id;
     private int mileage;
 
     public Vehicle(){
@@ -9,14 +8,18 @@ public class Vehicle {
     }
 
     public String getLicense() {
-        return this.license;
+        return license;
     }
 
-    public int getId() {
-        return this.id;
+    public void setLicense(String license) {
+        this.license = license;
     }
 
     public int getMileage() {
-        return this.mileage;
+        return mileage;
+    }
+
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
     }
 }
