@@ -7,4 +7,16 @@ public class Vehicle {
     public Vehicle(){
 
     }
+
+    public String getLicense() {
+        return this.license;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public int getMileage() {
+        return this.mileage;
+    }
 }
