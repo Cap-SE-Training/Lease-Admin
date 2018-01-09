@@ -38,7 +38,7 @@ public class Vehicle {
             throw new Error("Object is no vehicle");
         }
 
-        return this.id.equals(((Vehicle) object).id);
+        return this.id.equals(((Vehicle) object).getId());
     }
 
     @Override
