@@ -3,6 +3,15 @@ package com.capsetrack.leaseadmin;
 import com.capsetrack.leaseadmin.models.Employee;
 import com.capsetrack.leaseadmin.models.LeaseCompany;
 import com.capsetrack.leaseadmin.models.vehicle.*;
+import com.capsetrack.leaseadmin.models.vehicle.enums.Brand;
+import com.capsetrack.leaseadmin.models.vehicle.enums.Fuel;
+import com.capsetrack.leaseadmin.models.vehicle.enums.Transmission;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
 
@@ -17,12 +26,17 @@ public class Main {
             LeaseCompany athlon = new LeaseCompany("Athlon");
             LeaseCompany thatOtherCompany = new LeaseCompany("thatOtherCompany");
 
-            Vehicle vehicle = new Car("HR-PD-82", 100);
-            Vehicle vehicle2 = new Car("LM-SX-12", 50);
-            Vehicle vehicle3 = new Motor("ST-SK-12", 120, true, true);
-            Vehicle vehicle4 = new Truck("NU-MM-00", 40, false);
-            Vehicle vehicle5 = new Tractor("SX-EL-12", 300,"Green");
+            ArrayList<String> options = new ArrayList<String>();
+            options.add("Lichtgevend dak");
+            options.add("Stoelverwarming");
+
+            Vehicle vehicle = new Car("LM-SX-13", 3000, Fuel.Benzine, Brand.Ford, 14, 10.00, Transmission.Automatic, options, 15.00);
+            Vehicle vehicle2 = new Car("LM-SX-14", 3001, Fuel.Diesel, Brand.Toyota, 15, 11.00, Transmission.Manual, options, 16.00);
+            Vehicle vehicle3 = new Motor("LM-SX-15", 3002, Fuel.Benzine, Brand.Volkswagen, 16, 12.00, Transmission.Automatic, options, 17.00, true, true);
+            Vehicle vehicle4 = new Truck("LM-SX-16", 3003, Fuel.Hybrid, Brand.Volvo, 17, 13.00, Transmission.Manual, options, 18.00, true);
+            Vehicle vehicle5 = new Tractor("LM-SX-177", 3004, Fuel.Electric, Brand.Ford, 18, 14.00, Transmission.Automatic, options, 19.00, "Green");
 
         }
     }
-}
+
+
