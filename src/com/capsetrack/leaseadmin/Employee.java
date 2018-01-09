@@ -5,9 +5,11 @@ import java.util.UUID;
 public class Employee {
     private String id;
     private String name;
-    private int contractId;
+    private LeaseContract contract;
 
-    public Employee() {
+    public Employee(String name, LeaseContract contract) {
+        this.name = name;
+        this.contract = contract;
         this.id = UUID.randomUUID().toString();
     }
 
@@ -23,11 +25,11 @@ public class Employee {
         this.name = name;
     }
 
-    public int getContractId() {
-        return contractId;
+    public LeaseContract getContract() {
+        return contract;
     }
 
-    public void setContractId(int contractId) {
-        this.contractId = contractId;
+    public void setContract(LeaseContract contract) {
+        this.contract = contract;
     }
 }

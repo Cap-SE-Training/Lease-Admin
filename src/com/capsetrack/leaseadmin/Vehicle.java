@@ -1,6 +1,6 @@
 package com.capsetrack.leaseadmin;
 
-import java.util.ArrayList;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Vehicle {
@@ -73,4 +73,18 @@ public class Vehicle {
     public String getFuelType() {return fuelType;}
 
     public void setFuelType(String fuelType) {this.fuelType = fuelType;}
+
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof Vehicle)) {
+            throw new Error("Object is no vehicle");
+        }
+
+        return this.id.equals(((Vehicle) object).getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
