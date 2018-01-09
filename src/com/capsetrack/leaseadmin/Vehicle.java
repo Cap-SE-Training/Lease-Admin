@@ -1,5 +1,6 @@
 package com.capsetrack.leaseadmin;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -16,7 +17,16 @@ public class Vehicle {
     private double catalogValue;
 
 
-    public Vehicle() {
+    public Vehicle(String license, int mileage, String fuelType, Brand brand, int addition, double price, String transmission, ArrayList<String> options, double catalogValue) {
+        this.license = license;
+        this.mileage = mileage;
+        this.fuelType = fuelType;
+        this.brand = brand;
+        this.addition = addition;
+        this.price = price;
+        this.transmission = transmission;
+        this.options = options;
+        this.catalogValue = catalogValue;
         this.id = UUID.randomUUID().toString();
 
     }
