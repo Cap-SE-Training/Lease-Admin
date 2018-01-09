@@ -1,4 +1,4 @@
-package com.capsetrack.leaseadmin;
+package com.capsetrack.leaseadmin.models.vehicle;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package com.capsetrack.leaseadmin;
+package com.capsetrack.leaseadmin.models.vehicle;
 
 public enum Brand{
     Volvo,
