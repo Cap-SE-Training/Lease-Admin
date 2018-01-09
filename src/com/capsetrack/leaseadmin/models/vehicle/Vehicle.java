@@ -1,5 +1,10 @@
 package com.capsetrack.leaseadmin.models.vehicle;
 
+import com.capsetrack.leaseadmin.models.vehicle.enums.Fuel;
+import com.capsetrack.leaseadmin.models.vehicle.enums.Transmission;
+import com.capsetrack.leaseadmin.models.vehicle.enums.Brand;
+
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
@@ -8,15 +13,15 @@ public class Vehicle {
     private String id;
     private String license;
     private int mileage;
-    private String fuelType;
+    private Fuel fuelType;
     private Brand brand;
     private int addition;
     private double price; //demo purpose only we know we shouldn't use int here
-    private String transmission;
+    private Transmission transmission;
     private ArrayList<String> options;
     private double catalogValue;
 
-    public Vehicle(String license, int mileage, String fuelType, Brand brand, int addition, double price, String transmission, ArrayList<String> options, double catalogValue) {
+    public Vehicle(String license, int mileage, Fuel fuelType, Brand brand, int addition, double price, Transmission transmission, ArrayList<String> options, double catalogValue) {
         this.license = license;
         this.mileage = mileage;
         this.fuelType = fuelType;
@@ -75,18 +80,30 @@ public class Vehicle {
 
     public void setPrice(double price) {this.price = price;}
 
-    public String getTransmission() {return transmission;}
+    public Fuel getFuelType() {
+        return fuelType;
+    }
 
-    public void setTransmission(String transmission) {this.transmission = transmission;}
+    public void setFuelType(Fuel fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public Transmission getTransmission() {
+        return transmission;
+    }
+
+    public void setTransmission(Transmission transmission) {
+        this.transmission = transmission;
+    }
+
+    public ArrayList<String> getOptions() {
+        return options;
+    }
 
     public double getCatalogValue() {return catalogValue;}
 
     public void setCatalogValue(double catalogValue) {this.catalogValue = catalogValue;}
 
-
-    public String getFuelType() {return fuelType;}
-
-    public void setFuelType(String fuelType) {this.fuelType = fuelType;}
 
     @Override
     public boolean equals(Object object) {
