@@ -1,10 +1,15 @@
-public class Vehicle {
+import java.util.UUID;
+
+public abstract class Vehicle {
     private String id;
     private String license;
     private int mileage;
 
-    public Vehicle(){
+    public Vehicle(String license, int mileage){
+
         this.id = UUID.randomUUID().toString();
+        this.license = license;
+        this.mileage = mileage;
     }
 
     public String getId() {

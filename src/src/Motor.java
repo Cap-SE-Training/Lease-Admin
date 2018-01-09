@@ -3,9 +3,11 @@ public class Motor extends Vehicle {
    private boolean sideCar;
    private boolean saddleBags;
 
-    public Motor(boolean sideCar, boolean saddleBags) {
+    public Motor(boolean sideCar, boolean saddleBags, String license, int mileage) {
+        super (license, mileage);
         this.sideCar = sideCar;
         this.saddleBags = saddleBags;
+
     }
 
     public boolean isSideCar() {
