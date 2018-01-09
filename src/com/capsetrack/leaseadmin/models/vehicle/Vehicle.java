@@ -16,7 +16,6 @@ public class Vehicle {
     private ArrayList<String> options;
     private double catalogValue;
 
-
     public Vehicle(String license, int mileage, String fuelType, Brand brand, int addition, double price, String transmission, ArrayList<String> options, double catalogValue) {
         this.license = license;
         this.mileage = mileage;
@@ -28,7 +27,12 @@ public class Vehicle {
         this.options = options;
         this.catalogValue = catalogValue;
         this.id = UUID.randomUUID().toString();
+    }
 
+    public Vehicle(String id, String license, int mileage) {
+        this.id = id;
+        this.license = license;
+        this.mileage = mileage;
     }
 
     public Brand getBrand() {
@@ -96,5 +100,10 @@ public class Vehicle {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString(){
+        return "Vehicle " + this.id + ": mileage - " + this.mileage + ", license - " + this.license;
     }
 }

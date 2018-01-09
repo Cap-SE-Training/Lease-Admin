@@ -11,6 +11,11 @@ public class Tractor extends Vehicle {
         this.color = color;
     }
 
+    public Tractor(String id, String license, int mileage, String color){
+        super(id, license, mileage);
+        this.color = color;
+    }
+
     public String getColor() {
         return color;
     }

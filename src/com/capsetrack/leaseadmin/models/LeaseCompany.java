@@ -14,6 +14,8 @@ public class LeaseCompany {
     public LeaseCompany(String name) {
         this.name = name;
         this.id = UUID.randomUUID().toString();
+        this.vehicles = new ArrayList<>();
+        this.contracts = new ArrayList<>();
     }
 
     public void addVehicle(Vehicle vehicle) {

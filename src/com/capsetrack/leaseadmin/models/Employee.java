@@ -12,6 +12,11 @@ public class Employee {
         this.id = UUID.randomUUID().toString();
     }
 
+    public Employee(String id, String name) {
+        this.name = name;
+        this.id = id;
+    }
+
     public String getId() {
         return id;
     }

@@ -12,6 +12,12 @@ public class Motor extends Vehicle {
         this.saddleBags = saddleBags;
     }
 
+    public Motor(String id, String license, int mileage, boolean sideCar, boolean saddleBags){
+        super(id, license, mileage);
+        this.sideCar = sideCar;
+        this.saddleBags = saddleBags;
+    }
+
     public boolean isSideCar() {
         return sideCar;
     }
