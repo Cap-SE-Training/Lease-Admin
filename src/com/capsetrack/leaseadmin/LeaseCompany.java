@@ -2,10 +2,10 @@ package com.capsetrack.leaseadmin;
 
 import java.util.UUID;
 
-public class Leasecompany {
+public class LeaseCompany {
     private String id;
 
-    public Leasecompany() {
+    public LeaseCompany() {
         this.id = UUID.randomUUID().toString();
     }
 

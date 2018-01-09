@@ -3,7 +3,7 @@ package com.capsetrack.leaseadmin;
 import java.util.Date;
 import java.util.UUID;
 
-public class Leasecontract {
+public class LeaseContract {
     private String id;
     private Vehicle vehicle;
     private Employee employee;
@@ -11,7 +11,7 @@ public class Leasecontract {
     private Date endDate;
     private int duration;
 
-    public Leasecontract() {
+    public LeaseContract() {
         this.id = UUID.randomUUID().toString();
     }
 
