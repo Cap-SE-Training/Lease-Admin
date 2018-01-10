@@ -10,11 +10,45 @@ public class LeaseContract {
     private Vehicle vehicle;
     private Employee employee;
     private Date startDate;
+    private long duration;
     private Date endDate;
-    private int duration;
 
-    public LeaseContract() {
+    public LeaseContract(Vehicle vehicle, Employee employee, long duration){
         this.id = UUID.randomUUID().toString();
+        this.vehicle = vehicle;
+        this.employee = employee;
+        this.duration = duration;
+
+        createDates();
+    }
+
+    private void createDates(){
+        Long startDateInMillis = System.currentTimeMillis();
+        this.startDate = new Date(startDateInMillis);
+        this.endDate = new Date(startDateInMillis + duration);
+    }
+
+    public long calculateProgress(){
+        long diff = endDate.getTime() - startDate.getTime();
+        long diffSeconds = diff / 1000 % 60;
+        long diffMinutes = diff / (60 * 1000) % 60;
+        long diffHours = diff / (60 * 60 * 1000);
+        System.out.println(diffSeconds + " seconds since start.");
+        System.out.println(diffMinutes + " minutes since start.");
+        System.out.println(diffHours + " hours since start.");
+
+        return diffMinutes;
+    }
+
+    public boolean hasContractExpired(){
+        if(endDate.getTime() < System.currentTimeMillis()){
+            System.out.println("Contract has expired!");
+            return true;
+        }
+        else{
+            System.out.println("Contract has not expired!");
+            return false;
+        }
     }
 
     public String getId() {
@@ -45,6 +79,14 @@ public class LeaseContract {
         this.startDate = startDate;
     }
 
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long duration) {
+        this.duration = duration;
+    }
+
     public Date getEndDate() {
         return endDate;
     }
@@ -52,12 +94,5 @@ public class LeaseContract {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
 }
+
