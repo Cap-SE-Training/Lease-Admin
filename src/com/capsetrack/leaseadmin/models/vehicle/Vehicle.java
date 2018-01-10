@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Vehicle {
+public abstract class Vehicle {
     private String id;
     private String license;
     private int mileage;
