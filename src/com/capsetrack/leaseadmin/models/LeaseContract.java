@@ -13,8 +13,12 @@ public class LeaseContract {
     private Date endDate;
     private int duration;
 
-    public LeaseContract() {
+    public LeaseContract(Vehicle vehicle, Employee employee, Date startDate, int duration) {
         this.id = UUID.randomUUID().toString();
+        this.vehicle = vehicle;
+        this.employee = employee;
+        this.startDate = startDate;
+        this.duration = duration;
     }
 
     public String getId() {
