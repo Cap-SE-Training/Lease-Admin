@@ -51,21 +51,21 @@ public class Main {
             }
 
         }
-
-        Employee employee = new Employee("Kees");
-
-        LeaseContract contract = new LeaseContract(leaseCompany.getVehicles().get(0),employee, 50);
-
-//        contract.calculateProgress();
-
-        Timer timer = new Timer();
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                contract.calculateNewProgress();
-            }
-        }, 5000, 5000);
+//
+//        Employee employee = new Employee("Kees");
+//
+//        LeaseContract contract = new LeaseContract(leaseCompany.getVehicles().get(0),employee, 50);
+//
+////        contract.calculateProgress();
+//
+//        Timer timer = new Timer();
+//
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                contract.calculateNewProgress();
+//            }
+//        }, 5000, 5000);
 
     }
 
