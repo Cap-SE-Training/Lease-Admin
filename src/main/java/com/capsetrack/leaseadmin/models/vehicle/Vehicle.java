@@ -34,7 +34,7 @@ public abstract class Vehicle implements iDrive {
         this.isFree = true;
     }
 
-    public Vehicle(String id, String license) {
+    public Vehicle(String id, String license, int mileage) {
         this.id = id;
         this.license = license;
     }
@@ -81,6 +81,14 @@ public abstract class Vehicle implements iDrive {
 
     public boolean equals(Vehicle vehicle) {
         return this.id.equals(vehicle.getId());
+    }
+
+    public EngineInfo getEngineInfo() {
+        return engineInfo;
+    }
+
+    public void setEngineInfo(EngineInfo engineInfo) {
+        this.engineInfo = engineInfo;
     }
 
     @Override
