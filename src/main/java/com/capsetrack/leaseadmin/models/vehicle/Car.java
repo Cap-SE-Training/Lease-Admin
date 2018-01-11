@@ -13,8 +13,4 @@ public class Car extends Vehicle {
         super(id, license, mileage);
     }
 
-    @Override
-    public void drive(Vehicle vehicle, int distance) {
-        vehicle.getEngineInfo().setMileage(vehicle.getEngineInfo().getMileage()+distance);
-    }
 }

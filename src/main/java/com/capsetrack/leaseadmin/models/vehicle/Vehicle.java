@@ -98,4 +98,9 @@ public abstract class Vehicle implements iDrive {
     public String toString(){
         return "Vehicle " + this.id + ": mileage - " + this.engineInfo.getMileage() + ", license - " + this.license;
     }
+
+    @Override
+    public void drive(int distance) {
+        this.getEngineInfo().setMileage(this.getEngineInfo().getMileage()+distance);
+    }
 }

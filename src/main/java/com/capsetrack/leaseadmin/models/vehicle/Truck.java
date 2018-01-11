@@ -29,8 +29,4 @@ public class Truck extends Vehicle {
         this.doubleLoader = doubleLoader;
     }
 
-    @Override
-    public void drive(Vehicle vehicle, int distance) {
-        vehicle.getEngineInfo().setMileage(vehicle.getEngineInfo().getMileage()+distance);
-    }
 }

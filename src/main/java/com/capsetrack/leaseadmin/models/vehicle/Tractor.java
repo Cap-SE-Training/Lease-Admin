@@ -29,8 +29,4 @@ public class Tractor extends Vehicle {
         this.color = color;
     }
 
-    @Override
-    public void drive(Vehicle vehicle, int distance) {
-        vehicle.getEngineInfo().setMileage(vehicle.getEngineInfo().getMileage()+distance);
-    }
 }

@@ -40,8 +40,4 @@ public class Motor extends Vehicle {
         this.saddleBags = saddleBags;
     }
 
-    @Override
-    public void drive(Vehicle vehicle, int distance) {
-        vehicle.getEngineInfo().setMileage(vehicle.getEngineInfo().getMileage()+distance);
-    }
 }
