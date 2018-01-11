@@ -1,8 +1,12 @@
 package com.capsetrack.leaseadmin;
 
+import com.capsetrack.leaseadmin.models.Employee;
 import com.capsetrack.leaseadmin.models.LeaseCompany;
+import com.capsetrack.leaseadmin.models.LeaseContract;
 
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
 
@@ -69,6 +73,21 @@ public class Main {
             }
 
         }
+
+        Employee employee = new Employee("Kees");
+
+        LeaseContract contract = new LeaseContract(company.getVehicles().get(0),employee, 50);
+
+//        contract.calculateProgress();
+
+        Timer timer = new Timer();
+
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                contract.calculateNewProgress();
+            }
+        }, 5000, 5000);
 
     }
 

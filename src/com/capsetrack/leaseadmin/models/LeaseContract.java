@@ -3,6 +3,7 @@ package com.capsetrack.leaseadmin.models;
 import com.capsetrack.leaseadmin.models.vehicle.Vehicle;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,42 +14,41 @@ public class LeaseContract {
     private Date startDate;
     private long duration;
     private Date endDate;
+    private LocalDateTime newStartDate;
+    private LocalDateTime newEndDate;
+
 
     public LeaseContract(Vehicle vehicle, Employee employee, long duration){
         this.id = UUID.randomUUID().toString();
         this.vehicle = vehicle;
         this.employee = employee;
         this.duration = duration;
-        createDates();
+        
+        createNewDates();
     }
 
-    private void createDates(){
-        Long startDateInMillis = System.currentTimeMillis();
-        this.startDate = new Date(startDateInMillis);
-        this.endDate = new Date(startDateInMillis + duration);
+    private void createNewDates(){
+        this.newStartDate = LocalDateTime.now();
+        this.newEndDate = newStartDate.plusSeconds(duration);
+
+        System.out.println("Start date: " + newStartDate.toString());
+        System.out.println("End date: " + newEndDate.toString());
     }
 
-    public long calculateProgress(){
-        long diff = endDate.getTime() - startDate.getTime();
-        long diffSeconds = diff / 1000 % 60;
-        long diffMinutes = diff / (60 * 1000) % 60;
-        long diffHours = diff / (60 * 60 * 1000);
-        System.out.println(diffSeconds + " seconds since start.");
-        System.out.println(diffMinutes + " minutes since start.");
-        System.out.println(diffHours + " hours since start.");
+    public long calculateNewProgress(){
+        LocalDateTime currentTime = LocalDateTime.now();
+        long progress = 0;
+        if(!currentTime.isBefore(newEndDate)){
+            System.out.println("Contract has expired.");
+            //vehicle.setIsFree(false);
+        } else{
 
-        return diffMinutes;
-    }
+            progress = currentTime.until(newEndDate, ChronoUnit.SECONDS);
 
-    public boolean hasContractExpired(){
-        if(endDate.getTime() < System.currentTimeMillis()){
-            System.out.println("Contract has expired!");
-            return true;
+            System.out.println("Progress: " + progress + " seconds until contract expires.");
         }
-        else{
-            System.out.println("Contract has not expired!");
-            return false;
-        }
+
+        return progress;
     }
 
     public String getId() {

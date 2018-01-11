@@ -14,4 +14,9 @@ public class Car extends Vehicle {
     public Car(String id, String license, int mileage){
         super(id, license, mileage);
     }
+
+    @Override
+    public void drive(Vehicle vehicle, int distance) {
+        
+    }
 }

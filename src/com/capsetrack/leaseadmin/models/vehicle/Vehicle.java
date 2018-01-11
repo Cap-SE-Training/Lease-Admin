@@ -1,43 +1,42 @@
 package com.capsetrack.leaseadmin.models.vehicle;
 
+import com.capsetrack.leaseadmin.models.vehicle.VehicleInfo.EngineInfo;
 import com.capsetrack.leaseadmin.models.vehicle.enums.Fuel;
 import com.capsetrack.leaseadmin.models.vehicle.enums.Transmission;
 import com.capsetrack.leaseadmin.models.vehicle.enums.Brand;
+import com.capsetrack.leaseadmin.models.vehicle.interfaces.iDrive;
 
 
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class Vehicle {
-    private String id;
+public abstract class Vehicle implements iDrive {
+    private final String id;
     private String license;
-    private int mileage;
-    private Fuel fuelType;
     private Brand brand;
     private int addition;
-    private double price; //demo purpose only we know we shouldn't use int here
+    private double price; //demo purpose only we know we shouldn't use double here
     private Transmission transmission;
     private ArrayList<String> options;
     private double catalogValue;
+    private EngineInfo engineInfo;
+    private boolean isFree;
 
-    public Vehicle(String license, int mileage, Fuel fuelType, Brand brand, int addition, double price, Transmission transmission, ArrayList<String> options, double catalogValue) {
+    public Vehicle(String license, Brand brand, int addition, double price, double catalogValue, EngineInfo engineInfo){
         this.license = license;
-        this.mileage = mileage;
-        this.fuelType = fuelType;
         this.brand = brand;
         this.addition = addition;
         this.price = price;
-        this.transmission = transmission;
-        this.options = options;
         this.catalogValue = catalogValue;
         this.id = UUID.randomUUID().toString();
+        this.engineInfo = engineInfo;
+        this.isFree = true;
     }
 
-    public Vehicle(String id, String license, int mileage) {
+    public Vehicle(String id, String license) {
         this.id = id;
         this.license = license;
-        this.mileage = mileage;
     }
 
     public Brand getBrand() {
@@ -46,10 +45,6 @@ public abstract class Vehicle {
 
     public void setBrand(Brand brand) {
         this.brand = brand;
-    }
-
-    public void setOptions(ArrayList<String> options) {
-        this.options = options;
     }
 
     public String getId() {
@@ -64,14 +59,6 @@ public abstract class Vehicle {
         this.license = license;
     }
 
-    public int getMileage() {
-        return mileage;
-    }
-
-    public void setMileage(int mileage) {
-        this.mileage = mileage;
-    }
-
     public int getAddition() {return addition;}
 
     public void setAddition(int addition) {this.addition = addition;}
@@ -80,38 +67,20 @@ public abstract class Vehicle {
 
     public void setPrice(double price) {this.price = price;}
 
-    public Fuel getFuelType() {
-        return fuelType;
-    }
-
-    public void setFuelType(Fuel fuelType) {
-        this.fuelType = fuelType;
-    }
-
-    public Transmission getTransmission() {
-        return transmission;
-    }
-
-    public void setTransmission(Transmission transmission) {
-        this.transmission = transmission;
-    }
-
-    public ArrayList<String> getOptions() {
-        return options;
-    }
-
     public double getCatalogValue() {return catalogValue;}
 
     public void setCatalogValue(double catalogValue) {this.catalogValue = catalogValue;}
 
+    public void setIsFree(boolean isFree){
+        this.isFree = isFree;
+    }
 
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Vehicle)) {
-            throw new Error("Object is no vehicle");
-        }
+    public boolean getIsFree(){
+        return this.isFree;
+    }
 
-        return this.id.equals(((Vehicle) object).getId());
+    public boolean equals(Vehicle vehicle) {
+        return this.id.equals(vehicle.getId());
     }
 
     @Override
@@ -121,6 +90,6 @@ public abstract class Vehicle {
 
     @Override
     public String toString(){
-        return "Vehicle " + this.id + ": mileage - " + this.mileage + ", license - " + this.license;
+        return "Vehicle " + this.id + ": mileage - " + this.engineInfo.getMileage() + ", license - " + this.license;
     }
 }
