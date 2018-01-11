@@ -15,20 +15,21 @@ public class ConsoleCommands {
     private static Scanner scanner = new Scanner(System.in);
 
     public static LeaseCompany pickLeaseCompany() {
-        System.out.println("1 - Athlon");
-        System.out.println("2 - DieAnder");
-        System.out.println("3 - Cancel");
+        ArrayList<LeaseCompany> leaseCompanies;
 
-        int company = scanner.nextInt();
-        scanner.nextLine();
-
-        if (company == 1) {
-            return new LeaseCompany("Athlon");
-        } else if (company == 2) {
-            return new LeaseCompany("DieAnder");
-        } else {
+        try {
+            leaseCompanies = (ArrayList<LeaseCompany>) Database.load("leaseCompanies.tmp");
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
             return null;
         }
+
+        for (int i = 0; i <= leaseCompanies.size()-1; i++) {
+            System.out.println(i + " - " + leaseCompanies.get(i).getName());
+        }
+
+        int index = scanner.nextInt();
+        return leaseCompanies.get(index);
     }
 
     public static void addContract(Company company, LeaseCompany leaseCompany) throws Exception {

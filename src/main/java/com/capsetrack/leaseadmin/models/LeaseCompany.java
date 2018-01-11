@@ -11,7 +11,6 @@ public class LeaseCompany implements Serializable {
     private ArrayList<Vehicle> vehicles;
     private ArrayList<LeaseContract> contracts;
     private String name;
-    private ArrayList<Vehicle> freeVehicles;
 
     public LeaseCompany(String name) {
         this.name = name;
@@ -61,7 +60,7 @@ public class LeaseCompany implements Serializable {
     }
 
     public ArrayList<Vehicle> listAvailableVehicles(){
-        freeVehicles = new ArrayList<Vehicle>();
+        ArrayList<Vehicle> freeVehicles = new ArrayList<Vehicle>();
         for (Vehicle vehicle : this.vehicles) {
             if(vehicle.getIsFree()){
                 freeVehicles.add(vehicle);
@@ -73,10 +72,10 @@ public class LeaseCompany implements Serializable {
     }
 
     public Vehicle getFreeVehicle(String type){
-
-        if(!freeVehicles.isEmpty()) {
-            for (Vehicle vehicle : freeVehicles) {
-                if (vehicle.getClass().getName().equals(type)) {
+        if(!vehicles.isEmpty()) {
+            for (Vehicle vehicle : vehicles) {
+                String name = vehicle.getClass().getSimpleName();
+                if (name.equals(type) && vehicle.getIsFree()) {
                     System.out.println("Free vehicle of type " + type + " found!");
                     return vehicle;
                 }
