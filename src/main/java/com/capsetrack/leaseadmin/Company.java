@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Company {
 
     private String name;
-    private ArrayList<Employee> employees = new ArrayList<>();
+    private ArrayList<Employee> employees = new ArrayList<Employee>();
 
     public String getName() {
         return name;
