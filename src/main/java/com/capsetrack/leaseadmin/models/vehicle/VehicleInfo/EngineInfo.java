@@ -3,7 +3,9 @@ package com.capsetrack.leaseadmin.models.vehicle.VehicleInfo;
 import com.capsetrack.leaseadmin.models.vehicle.enums.Fuel;
 import com.capsetrack.leaseadmin.models.vehicle.enums.Transmission;
 
-public class EngineInfo {
+import java.io.Serializable;
+
+public class EngineInfo implements Serializable {
     private int mileage;
     private Fuel fuelType;
     private Transmission transmission;

@@ -1,12 +1,12 @@
 package com.capsetrack.leaseadmin.models;
 
-import com.capsetrack.leaseadmin.models.vehicle.Car;
 import com.capsetrack.leaseadmin.models.vehicle.Vehicle;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class LeaseCompany {
+public class LeaseCompany implements Serializable {
     private String id;
     private ArrayList<Vehicle> vehicles;
     private ArrayList<LeaseContract> contracts;

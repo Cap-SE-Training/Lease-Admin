@@ -1,8 +1,9 @@
 package com.capsetrack.leaseadmin.models;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Employee {
+public class Employee implements Serializable {
     private String id;
     private String name;
     private LeaseContract contract;

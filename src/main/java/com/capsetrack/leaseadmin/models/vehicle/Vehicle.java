@@ -1,17 +1,15 @@
 package com.capsetrack.leaseadmin.models.vehicle;
 
 import com.capsetrack.leaseadmin.models.vehicle.VehicleInfo.EngineInfo;
-import com.capsetrack.leaseadmin.models.vehicle.enums.Fuel;
-import com.capsetrack.leaseadmin.models.vehicle.enums.Transmission;
 import com.capsetrack.leaseadmin.models.vehicle.enums.Brand;
 import com.capsetrack.leaseadmin.models.vehicle.interfaces.iDrive;
 
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class Vehicle implements iDrive {
+public abstract class Vehicle implements iDrive, Serializable {
     private final String id;
     private String license;
     private Brand brand;
