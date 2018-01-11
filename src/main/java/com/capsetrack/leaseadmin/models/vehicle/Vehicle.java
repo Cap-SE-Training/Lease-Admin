@@ -5,11 +5,16 @@ import com.capsetrack.leaseadmin.models.vehicle.enums.Transmission;
 import com.capsetrack.leaseadmin.models.vehicle.enums.Brand;
 
 
+import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements Serializable {
+    public static final long serialVersionUID = 42L;
+
     private String id;
     private String license;
     private int mileage;
