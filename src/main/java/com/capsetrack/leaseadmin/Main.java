@@ -21,6 +21,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        //TODO: Remove this stuff and add some nicer way to save and add vehicles
         Database.saveFixtures();
 
         ArrayList employees = Database.load("employees.tmp");
@@ -31,6 +32,8 @@ public class Main {
         for (Vehicle vehicle : (ArrayList<Vehicle>) vehicles) {
             ((LeaseCompany) leaseCompanies.get(0)).addVehicle(vehicle);
         }
+        Database.save("leaseCompanies.tmp", leaseCompanies);
+
 //        final LeaseContract contract = new LeaseContract(((LeaseCompany) leaseCompanies.get(0)).getVehicles().get(0), (Employee) employees.get(0), 50);
 //        Timer timer = new Timer();
 //
