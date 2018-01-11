@@ -17,8 +17,6 @@ public abstract class Vehicle implements iDrive {
     private Brand brand;
     private int addition;
     private double price; //demo purpose only we know we shouldn't use double here
-    private Transmission transmission;
-    private ArrayList<String> options;
     private double catalogValue;
     private EngineInfo engineInfo;
     private boolean isFree;
