@@ -20,7 +20,7 @@ public class Main {
 
         LeaseCompany leaseCompany = ConsoleCommands.pickLeaseCompany();
 
-        if(leaseCompany == null){
+        if (leaseCompany == null) {
             quit = true;
         }
 
@@ -34,39 +34,17 @@ public class Main {
                     System.out.println("\nShutting down...");
                     quit = true;
                     break;
-
                 case 1:
-                    leaseCompany.listVehicles();
+                    ConsoleCommands.printVehicles(leaseCompany);
                     break;
                 case 2:
                     try {
                         ConsoleCommands.addContract(company, leaseCompany);
-                    } catch(Exception e){
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                         System.out.println("Please try again!");
                     }
                     break;
-
-                case 3:
-                    //remove vehicle
-                    break;
-
-                case 4:
-                    //update vehicle
-                    break;
-
-                case 5:
-                    leaseCompany.listContracts();
-                    break;
-
-                case 7:
-                    // Remove contract
-                    break;
-
-                case 8:
-                    // update contract
-                    break;
-
                 case 9:
                     printActions();
                     break;
@@ -76,7 +54,7 @@ public class Main {
 
         Employee employee = new Employee("Kees");
 
-        LeaseContract contract = new LeaseContract(company.getVehicles().get(0),employee, 50);
+        LeaseContract contract = new LeaseContract(leaseCompany.getVehicles().get(0),employee, 50);
 
 //        contract.calculateProgress();
 
@@ -96,12 +74,6 @@ public class Main {
         System.out.println("0  - to shutdown\n" +
                 "1  - to print vehicles\n" +
                 "2  - to rent a vehicle\n" +
-                "3  - to remove a existing vehicle\n" +
-                "4  - to update a existing vehicle\n" +
-                "5  - to print contracts\n" +
-                "6  - to add contract\n" +
-                "7  - to remove contract\n" +
-                "8  - to update contract\n" +
                 "9  - to print a list of available actions.\n");
 
         System.out.println("Choose your action: ");

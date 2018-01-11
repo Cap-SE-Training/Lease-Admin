@@ -57,13 +57,39 @@ public class ConsoleCommands {
         Vehicle vehicle = leaseCompany.getFreeVehicle(types.get(type));
 
         System.out.println("\n For how long would you like to rent the vehicle?");
-        int duration = scanner.nextInt();
+        long duration = scanner.nextLong();
         scanner.nextLine();
 
-        LeaseContract leaseContract = new LeaseContract(vehicle, employee, new Date(), duration);
+        LeaseContract leaseContract = new LeaseContract(vehicle, employee, duration);
         leaseCompany.addContract(leaseContract);
 
         System.out.println("Good luck with your vehicle.\n");
         System.out.println(vehicle.toString());
     }
+
+    public static void printVehicles(LeaseCompany leaseCompany){
+
+            boolean quit = false;
+            System.out.println("Choose next action\n" +
+            "1 - Print all vehicles\n" +
+            "2 - Print available vehicles\n" +
+            "3 - Cancel");
+
+            int type  = scanner.nextInt();
+
+            if(!quit) {
+                switch (type) {
+                    case 1:
+                        leaseCompany.listVehicles();
+                        break;
+                    case 2:
+                        //methode beschikbare vehicles
+                        break;
+                    case 3:
+                        quit = true;
+                        break;
+                }
+            }
+
+        }
 }
