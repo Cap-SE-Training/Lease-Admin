@@ -36,7 +36,7 @@ public class ConsoleCommands {
 
         Employee employee = company.getEmployee(id);
 
-        HashMap<Integer, String> types = new HashMap<>();
+        HashMap<Integer, String> types = new HashMap<Integer, String>();
         types.put(1, "car");
         types.put(2, "motor");
         types.put(3, "truck");
